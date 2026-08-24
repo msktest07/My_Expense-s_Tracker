@@ -1,12 +1,14 @@
 from datetime import date, datetime
 from pathlib import Path
+import os
 import sqlite3
+import tempfile
 
 from flask import Flask, flash, g, redirect, render_template, request, url_for
 
 
 BASE_DIR = Path(__file__).resolve().parent
-DATABASE = BASE_DIR / "expenses.db"
+DATABASE = Path(tempfile.gettempdir()) / "expenses.db" if "VERCEL" in os.environ else BASE_DIR / "expenses.db"
 
 app = Flask(__name__)
 app.config["SECRET_KEY"] = "change-this-secret-key"
