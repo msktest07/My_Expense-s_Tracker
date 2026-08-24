@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ app_title }}{% if page_title %} - {{ page_title }}{% endif %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand"><span class="brand-mark">₹</span><span>my expense's<br><strong>tracker</strong></span></div>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a class="nav-link {% if active == 'dashboard' %}active{% endif %}" href="{{ url_for('dashboard') }}"><span>⌂</span> Overview</a>
+        <a class="nav-link {% if active == 'transactions' %}active{% endif %}" href="{{ url_for('transactions') }}"><span>↗</span> Transactions</a>
+        <a class="nav-link {% if active == 'budgets' %}active{% endif %}" href="{{ url_for('budgets') }}"><span>◒</span> Budgets</a>
+        <a class="nav-link {% if active == 'reports' %}active{% endif %}" href="{{ url_for('reports') }}"><span>▥</span> Reports</a>
+      </nav>
+      <div class="sidebar-footer"><div class="profile"><div class="avatar">SK</div><div><strong>{{ username }}</strong><small>Personal account</small></div></div><span class="settings-icon">⚙</span></div>
+    </aside>
+    <main class="main-content">
+      <header class="topbar"><button class="menu-button" id="menuButton" aria-label="Open navigation">☰</button><div class="breadcrumb">Workspace <span>/</span> {{ active|capitalize }}</div><div class="top-actions"><span class="date-chip">{{ today }}</span><a class="button button-primary" href="{{ url_for('add_transaction') }}">+ Add transaction</a></div></header>
+      <div class="content-wrap">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}<div class="flash-stack">{% for category, message in messages %}<div class="flash {{ category }}" role="alert"><span>{{ '✓' if category == 'success' else '!' }}</span>{{ message }}<button class="flash-close" aria-label="Dismiss">×</button></div>{% endfor %}</div>{% endif %}
+        {% endwith %}
+        {% block content %}{% endblock %}
+      </div>
+    </main>
+  </div>
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
