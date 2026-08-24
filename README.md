@@ -81,11 +81,11 @@ https://github.com/msktest07/My_Expense-s_Tracker
 
 ## Live Application URL
 
-There is currently no public production deployment. The application is available locally at:
+The deployed production application is available at:
 
-http://127.0.0.1:5000
+https://my-expense-s-tracker.vercel.app
 
-A public URL can be added here after deploying the Flask application to a hosting provider such as Render, Railway, or Fly.io.
+For local development, use http://127.0.0.1:5000 after following the run instructions above.
 
 ## Project Structure
 
