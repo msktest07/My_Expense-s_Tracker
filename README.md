@@ -1,16 +1,101 @@
 # My Expense's Tracker
 
-A responsive personal finance dashboard built with Python, Flask, SQLite, HTML, CSS, and JavaScript.
+## Project Name
 
-## Run locally
+**My Expense's Tracker**
+
+## Project Description
+
+My Expense's Tracker is a responsive personal finance web application for recording income and expenses, organizing transactions by category, monitoring monthly budgets, and understanding spending patterns.
+
+The application is designed for **Shashi Kanth** and displays all amounts in **Indian Rupees (INR / ₹)**. It uses a local SQLite database, so transactions and budgets remain available between application runs.
+
+## Features
+
+- Overview dashboard with balance, income, expense, and recent activity summaries.
+- Add, edit, and delete income or expense transactions.
+- Transaction fields for title, amount, date, category, payment method, and notes.
+- Search transactions and filter them by income or expense type.
+- Create, update, and remove monthly category budgets.
+- Budget progress bars and overspending indicators.
+- Reports with category-based expense breakdowns.
+- Client-side and server-side form validation.
+- Clear success and error messages after actions.
+- Responsive layout with mobile navigation.
+- Starter transactions and budgets created automatically on first run.
+
+## Technology Used
+
+- **Python 3** - Application programming language.
+- **Flask** - Web framework and routing.
+- **SQLite** - Local database for transactions and budgets.
+- **HTML5** - Page structure and accessible forms.
+- **CSS3** - Responsive layout and visual styling.
+- **JavaScript** - Mobile navigation, dismissible messages, and client-side validation.
+
+## How to Install
+
+1. Clone the repository and open the project directory:
+
+	```powershell
+	git clone https://github.com/msktest07/My_Expense-s_Tracker.git
+	cd My_Expense_Tracker
+	```
+
+2. Create and activate a Python virtual environment:
+
+	```powershell
+	python -m venv .venv
+	.\.venv\Scripts\Activate.ps1
+	```
+
+	On macOS or Linux, activate it with:
+
+	```bash
+	source .venv/bin/activate
+	```
+
+3. Install the required package:
+
+	```powershell
+	pip install -r requirements.txt
+	```
+
+## How to Run Locally
+
+From the project directory, with the virtual environment activated, run:
 
 ```powershell
-python -m venv .venv
-.\.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
 python app.py
 ```
 
-Open http://127.0.0.1:5000 in your browser.
+Then open the local application in a browser:
 
-The app uses `expenses.db` for local persistence and creates starter transactions and budgets on first run. The displayed profile is **Shashi Kanth** and all amounts are in **INR (₹)**.
+**http://127.0.0.1:5000**
+
+The `expenses.db` file is created automatically when the application starts. It is intentionally excluded from Git by `.gitignore` because it is local runtime data.
+
+## GitHub Repository
+
+https://github.com/msktest07/My_Expense-s_Tracker
+
+## Live Application URL
+
+There is currently no public production deployment. The application is available locally at:
+
+http://127.0.0.1:5000
+
+A public URL can be added here after deploying the Flask application to a hosting provider such as Render, Railway, or Fly.io.
+
+## Project Structure
+
+```text
+My_Expense_Tracker/
+├── app.py                 # Flask routes, validation, and database logic
+├── requirements.txt       # Python dependencies
+├── PLAN.md                # Development plan
+├── README.md              # Project documentation
+├── .gitignore             # Ignored local files
+├── templates/             # HTML pages
+└── static/                # CSS and JavaScript assets
+```
